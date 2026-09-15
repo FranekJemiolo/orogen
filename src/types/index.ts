@@ -5,7 +5,7 @@ export interface ColumnDefinition {
   type: DataType;
 }
 
-export type AssetClass = 'macro' | 'equities' | 'fixed_income' | 'alternative' | 'crypto' | 'fundamentals' | 'sentiment';
+export type AssetClass = 'macro' | 'equities' | 'fixed_income' | 'alternative' | 'crypto' | 'fundamentals' | 'sentiment' | 'fx' | 'commodities';
 
 export type ETLEngine = 'duckdb-sql' | 'pyodide-python';
 
