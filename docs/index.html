@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orogen Protocol Documentation</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+      background: #0d1117;
+      color: #c9d1d9;
+    }
+    h1, h2, h3 { color: #58a6ff; }
+    code { background: #161b22; padding: 0.2rem 0.4rem; border-radius: 4px; font-family: 'JetBrains Mono', monospace; }
+    pre { background: #161b22; padding: 1rem; border-radius: 6px; overflow-x: auto; border: 1px solid #30363d; }
+    .badge { display: inline-block; padding: 0.25rem 0.5rem; background: #238636; color: white; border-radius: 4px; font-size: 0.8rem; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Orogen Protocol <span class="badge">v1.0.0</span></h1>
+  <p><strong>Decentralized, browser-based quant data lakehouse.</strong></p>
+
+  <h2>Core Components</h2>
+  <ul>
+    <li><strong>DuckDB-Wasm Engine:</strong> In-browser vector OLAP execution supporting ASOF joins across diverse temporal feeds.</li>
+    <li><strong>OPFS Storage & LRU Eviction:</strong> High throughput chunk storage with quota enforcement and non-blocking read streams.</li>
+    <li><strong>Sandboxed Pyodide ETL:</strong> Deterministic Python data transformations with strict URL allowlists and sandbox containment.</li>
+    <li><strong>Nostr-Signaled WebRTC P2P Mesh:</strong> Ephemeral Kind 29333 peer rendezvous with 64KB SCTP backpressure control.</li>
+    <li><strong>Cryptographic Strike System:</strong> SHA-256 chunk Merkle verification with peer banning and automatic failover.</li>
+    <li><strong>Iceberg Catalog Service Worker:</strong> Intercepts REST calls to <code>https://orogen.local/api/v1/</code> to fool DuckDB into streaming local OPFS data.</li>
+  </ul>
+</body>
+</html>

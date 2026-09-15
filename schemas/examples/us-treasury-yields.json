@@ -1,0 +1,17 @@
+{
+  "$schema": "../dataset.schema.json",
+  "id": "macro-us-treasury-yields",
+  "name": "US 10-Year Treasury Constant Maturity Rate",
+  "description": "Daily 10-Year Treasury Yield benchmark from FRED macro time-series",
+  "asset_class": "macro",
+  "schema": [
+    { "column": "timestamp", "type": "TIMESTAMP" },
+    { "column": "rate", "type": "FLOAT64" }
+  ],
+  "etl": {
+    "engine": "pyodide-python",
+    "source_api": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10",
+    "requirements": ["pandas", "numpy"],
+    "script": "import pandas as pd\nimport numpy as np\n\nraw_data = fetch_data('https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10')\nlines = raw_data.strip().split('\\n')\ndata = [l.split(',') for l in lines[1:] if len(l.split(',')) == 2 and l.split(',')[1] != '.']\ndf = pd.DataFrame(data, columns=['timestamp', 'rate'])\ndf['timestamp'] = pd.to_datetime(df['timestamp'])\ndf['rate'] = df['rate'].astype(float)\nresult_arrow = df\n"
+  }
+}

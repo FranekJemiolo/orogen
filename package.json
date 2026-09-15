@@ -1,0 +1,43 @@
+{
+  "name": "@franekjemiolo/orogen",
+  "version": "1.0.0",
+  "description": "Decentralized, browser-based quant data lakehouse protocol",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "tsc --noEmit",
+    "format": "prettier --write \"src/**/*.{ts,js,json,md}\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FranekJemiolo/orogen.git"
+  },
+  "keywords": [
+    "quant",
+    "lakehouse",
+    "duckdb",
+    "webrtc",
+    "nostr",
+    "pyodide",
+    "opfs",
+    "arrow",
+    "parquet"
+  ],
+  "author": "Franek Jemiolo",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@duckdb/duckdb-wasm": "^1.29.0",
+    "ajv": "^8.17.1",
+    "apache-arrow": "^18.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}

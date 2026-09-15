@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Orogen Dataset Manifest",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "asset_class": {
+      "type": "string",
+      "enum": ["macro", "equities", "fixed_income", "alternative"]
+    },
+    "schema": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "column": { "type": "string" },
+          "type": { "enum": ["TIMESTAMP", "FLOAT32", "FLOAT64", "UTF8"] }
+        },
+        "required": ["column", "type"]
+      }
+    },
+    "etl": {
+      "type": "object",
+      "properties": {
+        "engine": {
+          "type": "string",
+          "enum": ["duckdb-sql", "pyodide-python"]
+        },
+        "source_api": {
+          "type": "string",
+          "format": "uri"
+        },
+        "script": {
+          "type": "string",
+          "description": "The raw Python or SQL execution script"
+        },
+        "requirements": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Pyodide package dependencies to pre-load (e.g. pandas, numpy)"
+        }
+      },
+      "required": ["engine", "script"]
+    }
+  },
+  "required": ["id", "name", "schema", "etl"]
+}
