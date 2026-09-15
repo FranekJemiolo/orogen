@@ -1,0 +1,18 @@
+{
+  "$schema": "../dataset.schema.json",
+  "id": "crypto-btc-usdt-trades",
+  "name": "BTC-USDT Spot Trades",
+  "description": "High frequency cryptocurrency trade executions for volatility correlation",
+  "asset_class": "alternative",
+  "schema": [
+    { "column": "timestamp", "type": "TIMESTAMP" },
+    { "column": "price", "type": "FLOAT64" },
+    { "column": "volume", "type": "FLOAT32" }
+  ],
+  "etl": {
+    "engine": "pyodide-python",
+    "source_api": "https://api.binance.com/api/v3/trades",
+    "requirements": ["numpy", "pandas"],
+    "script": "import numpy as np\nraw = fetch_data('https://api.binance.com/api/v3/trades')\nresult_arrow = None\n"
+  }
+}

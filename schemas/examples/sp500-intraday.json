@@ -1,0 +1,17 @@
+{
+  "$schema": "../dataset.schema.json",
+  "id": "equities-sp500-intraday",
+  "name": "S&P 500 Intraday Ticks",
+  "description": "Benchmark US equity index minute-level ticks and volume profiles",
+  "asset_class": "equities",
+  "schema": [
+    { "column": "timestamp", "type": "TIMESTAMP" },
+    { "column": "price", "type": "FLOAT64" },
+    { "column": "volume", "type": "FLOAT32" }
+  ],
+  "etl": {
+    "engine": "duckdb-sql",
+    "source_api": "https://orogen.local/api/v1/warehouse/sp500",
+    "script": "SELECT timestamp, price, volume FROM read_parquet('sp500.parquet')"
+  }
+}
