@@ -87,6 +87,15 @@ npm test
 npm run build
 ```
 
+## Dataset Manifests, Connectors & Secrets
+
+The Orogen Protocol is designed to run modular, declarative dataset manifests in the browser:
+- **DuckDB-SQL & Pyodide-Python Engines**: Zero-backend client-side execution producing bit-exact Arrow IPC streams.
+- **Dynamic Secret Interpolation**: Manifests support `{{VARIABLE}}` template placeholders (e.g. `{{FRED_API_KEY}}`, `{{CORS_PROXY}}`) resolved at runtime via the client's encrypted vault or CLI environment variables.
+- **Community Connector Registry**: 18 production connectors available in [`orogen-manifests`](https://github.com/FranekJemiolo/orogen-manifests).
+
+📖 For complete documentation on authoring new sources, configuring existing pipelines, and handling API tokens securely, see the [Orogen Sources & Secrets Guide](https://github.com/FranekJemiolo/orogen-manifests/blob/main/docs/SOURCES_GUIDE.md).
+
 ## License
 
 Licensed under the [Apache License, Version 2.0](LICENSE).
